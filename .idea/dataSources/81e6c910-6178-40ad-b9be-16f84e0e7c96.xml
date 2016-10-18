@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="H2 - Nak">
+  <database-model serializer="dbm" rdbms="H2" format-version="2.6">
+    <database id="1" name="NAK">
+      <visible>1</visible>
+    </database>
+    <schema id="2" parent="1" name="INFORMATION_SCHEMA"/>
+    <schema id="3" parent="1" name="PUBLIC">
+      <visible>1</visible>
+    </schema>
+    <table id="4" parent="3" name="COURSE"/>
+    <table id="5" parent="3" name="LECTURE"/>
+    <table id="6" parent="3" name="ROOM"/>
+    <column id="7" parent="4" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="8" parent="4" name="FIELD_OF_STUDY">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="9" parent="4" name="LECTURER">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(50)|12</data-type>
+    </column>
+    <column id="10" parent="4" name="NUMBER">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(10)|4</data-type>
+    </column>
+    <column id="11" parent="4" name="TITLE">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100)|12</data-type>
+    </column>
+    <index id="12" parent="4" name="UKG1OOPH785I8JXHEEVF3FTCMV9_INDEX_7">
+      <columns>FIELD_OF_STUDY
+NUMBER</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="13" parent="4" name="CONSTRAINT_7">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="14" parent="5" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="5" name="BEGIN">
+      <mandatory>1</mandatory>
+      <data-type>TIMESTAMP(23,10)|93</data-type>
+    </column>
+    <column id="16" parent="5" name="END">
+      <mandatory>1</mandatory>
+      <data-type>TIMESTAMP(23,10)|93</data-type>
+    </column>
+    <column id="17" parent="5" name="COURSE_ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="18" parent="5" name="ROOM_ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="19" parent="5" name="CONSTRAINT_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="20" parent="5" name="FKW1IKDNMJJV6VO1TX2XGO3SDO">
+      <columns>COURSE_ID</columns>
+      <ref-key>~.COURSE.CONSTRAINT_7</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="21" parent="5" name="FKDSY6L9ODE9WJX42QR97Y9JERA">
+      <columns>ROOM_ID</columns>
+      <ref-key>~.ROOM.CONSTRAINT_26</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="22" parent="6" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="23" parent="6" name="BEAMERPRESENT">
+      <mandatory>1</mandatory>
+      <data-type>BOOLEAN(1)|16</data-type>
+    </column>
+    <column id="24" parent="6" name="BUILDING">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="25" parent="6" name="ROOM_NUMBER">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(3)|12</data-type>
+    </column>
+    <column id="26" parent="6" name="SEATS">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(10)|4</data-type>
+    </column>
+    <index id="27" parent="6" name="UKBAE923BWP6G93144AR131P34W_INDEX_2">
+      <columns>BUILDING
+ROOM_NUMBER</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="28" parent="6" name="CONSTRAINT_26">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
